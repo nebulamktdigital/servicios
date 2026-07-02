@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios Digitales &amp; IA — Catálogo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+/* === VIEWPORT BASE === */
+html, body { height: 100%; overflow-x: hidden; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+.slide {
+  width: 100vw; height: 100vh; height: 100dvh;
+  overflow: hidden; scroll-snap-align: start;
+  display: flex; flex-direction: column; position: relative;
+}
+.slide-content {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center; max-height: 100%; overflow: hidden;
+  padding: var(--slide-padding);
+}
+:root {
+  --title-size: clamp(1.5rem, 5vw, 4rem);
+  --h2-size: clamp(1.25rem, 3.5vw, 2.5rem);
+  --h3-size: clamp(1rem, 2.5vw, 1.75rem);
+  --body-size: clamp(0.75rem, 1.5vw, 1.125rem);
+  --small-size: clamp(0.65rem, 1vw, 0.875rem);
+  --slide-padding: clamp(1rem, 4vw, 4rem);
+  --content-gap: clamp(0.5rem, 2vw, 2rem);
+  --element-gap: clamp(0.25rem, 1vw, 1rem);
+}
+.card, .container, .content-box { max-width: min(90vw, 1000px); max-height: min(80vh, 700px); }
+img, .image-container { max-width: 100%; max-height: min(50vh, 400px); object-fit: contain; }
+@media (max-height: 700px) {
+  :root { --slide-padding: clamp(0.75rem, 3vw, 2rem); --content-gap: clamp(0.4rem, 1.5vw, 1rem); --title-size: clamp(1.25rem, 4.5vw, 2.5rem); --h2-size: clamp(1rem, 3vw, 1.75rem); }
+}
+@media (max-height: 600px) {
+  :root { --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem); --content-gap: clamp(0.3rem, 1vw, 0.75rem); --title-size: clamp(1.1rem, 4vw, 2rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); }
+  .nav-dots, .decorative { display: none; }
+}
+@media (max-height: 500px) {
+  :root { --slide-padding: clamp(0.4rem, 2vw, 1rem); --title-size: clamp(1rem, 3.5vw, 1.5rem); --h2-size: clamp(0.9rem, 2.5vw, 1.25rem); --body-size: clamp(0.65rem, 1vw, 0.85rem); }
+}
+@media (max-width: 600px) { :root { --title-size: clamp(1.25rem, 7vw, 2.5rem); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* === THEME — ELECTRIC STUDIO === */
+:root {
+  --dark: #060810;
+  --white: #ffffff;
+  --off-white: #f7f8ff;
+  --accent: #3a5cff;
+  --accent-2: #00c9ff;
+  --text-light: #ffffff;
+  --text-muted-light: rgba(255,255,255,0.55);
+  --text-dark: #060810;
+  --text-muted-dark: rgba(6,8,16,0.5);
+  --border-dark: rgba(6,8,16,0.08);
+  --border-light: rgba(255,255,255,0.08);
+  --ease: cubic-bezier(0.16,1,0.3,1);
+  --dur: 0.65s;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased; }
+
+/* === SPLIT LAYOUT === */
+.split { display: grid !important; flex-direction: unset; grid-template-columns: 1fr 1fr; }
+.split-55 { grid-template-columns: 1.15fr 0.85fr; }
+.split-45 { grid-template-columns: 0.85fr 1.15fr; }
+
+.panel {
+  display: flex; flex-direction: column; overflow: hidden;
+  padding: var(--slide-padding); position: relative; gap: var(--content-gap);
+}
+.jb { justify-content: space-between; }
+.jc { justify-content: center; }
+
+.panel-dark {
+  background: var(--dark);
+  background-image: radial-gradient(ellipse at 0% 100%, rgba(58,92,255,0.15) 0%, transparent 55%);
+}
+.panel-dark::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px; pointer-events: none; z-index: 0;
+}
+.accent-bar::before {
+  content: ''; position: absolute; left: 0; top: 12%; bottom: 12%;
+  width: 3px; background: linear-gradient(to bottom, transparent, var(--accent), var(--accent-2), transparent); z-index: 2;
+}
+.panel-light { background: var(--white); }
+.panel > * { position: relative; z-index: 1; }
+
+/* === FULL DARK SLIDE === */
+.full-dark {
+  background: var(--dark);
+  background-image: radial-gradient(ellipse at 80% 20%, rgba(58,92,255,0.12) 0%, transparent 50%),
+                    radial-gradient(ellipse at 20% 80%, rgba(0,201,255,0.07) 0%, transparent 50%);
+  display: flex !important; align-items: stretch;
+}
+.full-dark .slide-content { padding: var(--slide-padding); width: 100%; }
+
+/* === TYPOGRAPHY === */
+.eyebrow {
+  font-size: clamp(0.58rem, 0.88vw, 0.7rem); font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-2);
+}
+.eyebrow.ow { color: var(--accent); }
+.heading-xl {
+  font-size: clamp(2rem, 4.8vw, 4.2rem); font-weight: 800;
+  line-height: 1.0; letter-spacing: -0.02em; color: var(--text-light);
+}
+.heading-lg {
+  font-size: clamp(1.4rem, 3vw, 2.6rem); font-weight: 800;
+  line-height: 1.05; letter-spacing: -0.02em; color: var(--text-light);
+}
+.heading-lg.ow { color: var(--text-dark); }
+.heading-md {
+  font-size: clamp(1rem, 2vw, 1.8rem); font-weight: 800;
+  line-height: 1.1; color: var(--text-light);
+}
+.heading-md.ow { color: var(--text-dark); }
+.body-text { font-size: clamp(0.75rem, 1.25vw, 0.95rem); font-weight: 400; line-height: 1.6; color: var(--text-muted-light); }
+.body-text.ow { color: var(--text-muted-dark); }
+.caption { font-size: clamp(0.55rem, 0.82vw, 0.68rem); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted-light); }
+.caption.ow { color: var(--text-muted-dark); }
+.accent-text { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* === SERVICE BADGE === */
+.svc-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: clamp(0.58rem, 0.88vw, 0.7rem); font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 2px; width: fit-content;
+}
+.svc-badge.dk { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+.svc-badge.lt { background: rgba(58,92,255,0.08); border: 1px solid rgba(58,92,255,0.2); color: var(--accent); }
+.badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+/* === FEATURE LIST === */
+.feat-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.35rem, 0.8vh, 0.8rem); }
+.feat-item {
+  display: flex; align-items: flex-start; gap: clamp(0.5rem, 0.9vw, 0.75rem);
+  font-size: clamp(0.72rem, 1.2vw, 0.92rem); line-height: 1.5; color: var(--text-muted-light);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.feat-item.ow { color: var(--text-muted-dark); }
+.slide.visible .feat-item:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.2s; }
+.slide.visible .feat-item:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.3s; }
+.slide.visible .feat-item:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.4s; }
+.slide.visible .feat-item:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.5s; }
+.slide.visible .feat-item:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.6s; }
+.slide.visible .feat-item:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.7s; }
+.feat-icon {
+  width: clamp(16px, 1.8vw, 20px); height: clamp(16px, 1.8vw, 20px); border-radius: 50%;
+  border: 1px solid rgba(58,92,255,0.35); flex-shrink: 0; margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+}
+.feat-icon::after {
+  content: ''; width: 5px; height: 4px;
+  border-left: 1.5px solid var(--accent-2); border-bottom: 1.5px solid var(--accent-2);
+  transform: rotate(-45deg) translateY(-1px); display: block;
+}
+
+/* === STEP ITEMS === */
+.steps-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.5rem, 1vh, 0.9rem); }
+.step-item {
+  display: flex; gap: clamp(0.6rem, 1.2vw, 1rem); align-items: flex-start;
+  opacity: 0; transform: translateX(-16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.slide.visible .step-item:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.15s; }
+.slide.visible .step-item:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.27s; }
+.slide.visible .step-item:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.39s; }
+.slide.visible .step-item:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.51s; }
+.step-num {
+  width: clamp(22px, 2.2vw, 28px); height: clamp(22px, 2.2vw, 28px); border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(0.55rem, 0.85vw, 0.68rem); font-weight: 800; color: var(--white); flex-shrink: 0; margin-top: 2px;
+}
+.step-title { font-size: clamp(0.75rem, 1.2vw, 0.92rem); font-weight: 700; color: var(--text-light); margin-bottom: 0.15rem; }
+.step-title.ow { color: var(--text-dark); }
+.step-desc { font-size: clamp(0.62rem, 0.98vw, 0.78rem); color: var(--text-muted-light); line-height: 1.5; }
+.step-desc.ow { color: var(--text-muted-dark); }
+
+/* === PRICING BOX === */
+.price-box { border-radius: 4px; padding: clamp(1rem, 2vw, 1.75rem); }
+.price-box.accent { background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+.price-box.dark-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+.price-box.light-card { background: rgba(58,92,255,0.05); border: 1px solid rgba(58,92,255,0.12); }
+.price-label { font-size: clamp(0.52rem, 0.82vw, 0.65rem); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 0.2rem; }
+.price-label.dk { color: var(--accent); }
+.price-amount { font-size: clamp(1.4rem, 2.6vw, 2.2rem); font-weight: 800; line-height: 1; color: var(--white); }
+.price-amount.dk { color: var(--text-dark); }
+.price-sub { font-size: clamp(0.58rem, 0.88vw, 0.7rem); color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
+.price-sub.dk { color: var(--text-muted-dark); }
+.includes-list { list-style: none; margin-top: clamp(0.6rem, 1.2vw, 1rem); display: flex; flex-direction: column; gap: clamp(0.25rem, 0.5vh, 0.5rem); }
+.inc-item { font-size: clamp(0.6rem, 0.92vw, 0.72rem); color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 0.45rem; }
+.inc-item::before { content: '✓'; color: var(--accent-2); font-weight: 700; font-size: 0.7em; flex-shrink: 0; }
+.inc-item.dk { color: var(--text-muted-dark); }
+.inc-item.dk::before { color: var(--accent); }
+
+/* === CTA BUTTON === */
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: clamp(0.5rem, 0.9vw, 0.7rem) clamp(1rem, 2vw, 1.6rem);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--white); font-size: clamp(0.62rem, 0.98vw, 0.78rem); font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px;
+  border: none; cursor: pointer; width: fit-content; text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.cta-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+.cta-btn.outline { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--text-light); }
+
+/* === QUESTION BOX (para la conversación en vivo) === */
+.q-box {
+  border-radius: 4px;
+  padding: clamp(0.7rem, 1.3vw, 1.1rem) clamp(0.85rem, 1.5vw, 1.3rem);
+  border-left: 3px solid var(--accent);
+  position: relative;
+}
+.q-box.dk { background: rgba(58,92,255,0.1); border-left-color: var(--accent-2); }
+.q-box.lt { background: rgba(58,92,255,0.06); }
+.q-label {
+  font-size: clamp(0.5rem, 0.78vw, 0.62rem);
+  font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 0.4rem;
+  margin-bottom: clamp(0.25rem, 0.5vw, 0.4rem);
+}
+.q-label.dk { color: var(--accent-2); }
+.q-label.lt { color: var(--accent); }
+.q-label::before {
+  content: '?'; display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: currentColor; color: var(--dark);
+  font-size: 0.7rem; font-weight: 900; letter-spacing: 0;
+}
+.q-label.lt::before { color: var(--white); }
+.q-text {
+  font-size: clamp(0.72rem, 1.18vw, 0.92rem);
+  font-weight: 600; line-height: 1.4;
+}
+.q-text.dk { color: var(--text-light); }
+.q-text.lt { color: var(--text-dark); }
+
+/* === STATS === */
+.stats-row { display: flex; gap: clamp(1.5rem, 3vw, 3rem); }
+.stat-num { font-size: clamp(1.4rem, 2.8vw, 2.4rem); font-weight: 800; line-height: 1; color: var(--text-light); }
+.stat-lbl { font-size: clamp(0.52rem, 0.82vw, 0.65rem); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted-light); margin-top: 0.2rem; }
+
+/* === TOOLS CHIPS === */
+.tools-row { display: flex; flex-wrap: wrap; gap: clamp(0.28rem, 0.55vw, 0.48rem); margin-top: clamp(0.5rem, 1vw, 0.85rem); }
+.tool-chip { padding: 0.2rem 0.5rem; border-radius: 2px; font-size: clamp(0.52rem, 0.82vw, 0.65rem); font-weight: 600; letter-spacing: 0.05em; }
+.tool-chip.dk { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.6); }
+.tool-chip.lt { background: rgba(58,92,255,0.07); color: var(--accent); border: 1px solid rgba(58,92,255,0.18); }
+
+/* === METRICS LIST === */
+.metrics-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.28rem, 0.55vh, 0.5rem); }
+.metric-item { font-size: clamp(0.62rem, 0.98vw, 0.76rem); color: var(--text-muted-dark); display: flex; align-items: center; gap: 0.4rem; }
+.metric-item::before { content: '→'; color: var(--accent); font-size: 0.8em; flex-shrink: 0; }
+
+/* === AUDIT GRID === */
+.audit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.45rem, 0.9vw, 0.8rem); }
+.audit-card { border-radius: 4px; padding: clamp(0.6rem, 1.2vw, 1rem); }
+.audit-card.dk { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.audit-card.lt { background: rgba(58,92,255,0.04); border: 1px solid rgba(58,92,255,0.1); }
+.audit-icon { font-size: clamp(0.95rem, 1.4vw, 1.2rem); margin-bottom: 0.3rem; }
+.audit-title { font-size: clamp(0.7rem, 1.1vw, 0.86rem); font-weight: 700; margin-bottom: 0.25rem; }
+.audit-title.dk { color: var(--text-light); }
+.audit-title.ow { color: var(--text-dark); }
+.audit-desc { font-size: clamp(0.56rem, 0.88vw, 0.7rem); line-height: 1.5; }
+.audit-desc.dk { color: var(--text-muted-light); }
+.audit-desc.ow { color: var(--text-muted-dark); }
+
+/* === EXAMPLES LIST === */
+.examples-list { list-style: none; display: flex; flex-direction: column; gap: clamp(0.4rem, 0.8vh, 0.75rem); }
+.example-item { font-size: clamp(0.68rem, 1.08vw, 0.82rem); line-height: 1.5; color: var(--text-muted-light); display: flex; align-items: flex-start; gap: 0.45rem; }
+.example-item.ow { color: var(--text-muted-dark); }
+
+/* === PAIN SLIDE === */
+.pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.65rem, 1.3vw, 1.2rem); }
+.pain-item {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 4px; padding: clamp(0.7rem, 1.4vw, 1.2rem);
+  display: flex; gap: clamp(0.5rem, 0.9vw, 0.8rem); align-items: flex-start;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+}
+.slide.visible .pain-item:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.2s; }
+.slide.visible .pain-item:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.32s; }
+.slide.visible .pain-item:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.44s; }
+.slide.visible .pain-item:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.56s; }
+.pain-emoji { font-size: clamp(1rem, 1.6vw, 1.3rem); flex-shrink: 0; }
+.pain-strong { display: block; font-weight: 700; color: var(--text-light); font-size: clamp(0.72rem, 1.2vw, 0.9rem); margin-bottom: 0.2rem; }
+.pain-sub { font-size: clamp(0.62rem, 0.98vw, 0.76rem); line-height: 1.5; color: var(--text-muted-light); }
+
+/* === DASHBOARD TYPES === */
+.dash-type { border-left: 2px solid var(--accent); padding-left: clamp(0.7rem, 1.4vw, 1.1rem); margin-bottom: clamp(0.45rem, 0.9vw, 0.8rem); }
+.dash-type:last-child { margin-bottom: 0; }
+.dash-title { font-size: clamp(0.8rem, 1.28vw, 0.98rem); font-weight: 700; color: var(--text-dark); margin-bottom: 0.2rem; }
+.dash-bullets { font-size: clamp(0.6rem, 0.95vw, 0.74rem); color: var(--text-muted-dark); line-height: 1.6; }
+
+/* === SEO CATEGORIES === */
+.seo-cat { margin-bottom: clamp(0.45rem, 0.9vw, 0.8rem); }
+.seo-cat:last-child { margin-bottom: 0; }
+.seo-head { display: flex; align-items: center; gap: 0.45rem; margin-bottom: 0.25rem; }
+.seo-icon { font-size: clamp(0.85rem, 1.2vw, 1rem); }
+.seo-title { font-size: clamp(0.75rem, 1.2vw, 0.92rem); font-weight: 700; }
+.seo-title.dk { color: var(--text-light); }
+.seo-title.ow { color: var(--text-dark); }
+.seo-items { font-size: clamp(0.58rem, 0.92vw, 0.72rem); color: var(--text-muted-light); line-height: 1.6; padding-left: clamp(0.9rem, 1.6vw, 1.4rem); }
+.seo-items.ow { color: var(--text-muted-dark); }
+
+/* === PROOF CARDS === */
+.proof-cards { display: flex; flex-direction: column; gap: clamp(0.5rem, 1vw, 0.9rem); }
+.proof-card { background: rgba(58,92,255,0.05); border: 1px solid rgba(58,92,255,0.12); border-radius: 4px; padding: clamp(0.65rem, 1.3vw, 1.1rem); display: flex; align-items: flex-start; gap: clamp(0.6rem, 1.2vw, 1rem); }
+.proof-avatar { width: clamp(32px, 3.2vw, 42px); height: clamp(32px, 3.2vw, 42px); border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: flex; align-items: center; justify-content: center; font-size: clamp(0.68rem, 1.1vw, 0.86rem); font-weight: 800; color: var(--white); flex-shrink: 0; letter-spacing: -0.02em; }
+.proof-handle { font-size: clamp(0.72rem, 1.15vw, 0.88rem); font-weight: 700; color: var(--text-dark); }
+.proof-sector { font-size: clamp(0.55rem, 0.85vw, 0.68rem); color: var(--text-muted-dark); margin-bottom: 0.2rem; }
+.proof-service { font-size: clamp(0.62rem, 0.98vw, 0.76rem); color: var(--accent); font-weight: 600; }
+
+/* === WHY GRID === */
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.45rem, 0.9vw, 0.8rem); }
+.why-item { display: flex; gap: clamp(0.45rem, 0.9vw, 0.75rem); align-items: flex-start; padding: clamp(0.5rem, 1vw, 0.85rem); border-radius: 4px; background: rgba(58,92,255,0.04); border: 1px solid rgba(58,92,255,0.1); }
+.why-icon { font-size: clamp(0.95rem, 1.4vw, 1.2rem); flex-shrink: 0; }
+.why-ttl { font-size: clamp(0.72rem, 1.15vw, 0.88rem); font-weight: 700; color: var(--text-dark); margin-bottom: 0.15rem; }
+.why-desc { font-size: clamp(0.58rem, 0.9vw, 0.72rem); color: var(--text-muted-dark); line-height: 1.5; }
+
+/* === TITLE SLIDE SERVICE LIST === */
+.tsvc-list { list-style: none; display: flex; flex-direction: column; }
+.tsvc-row { display: flex; align-items: center; gap: clamp(0.7rem, 1.4vw, 1.1rem); padding: clamp(0.55rem, 1.1vw, 0.9rem) 0; border-bottom: 1px solid var(--border-dark); }
+.tsvc-row:last-child { border-bottom: none; }
+.tsvc-n { font-size: clamp(0.52rem, 0.82vw, 0.65rem); font-weight: 700; color: var(--accent); min-width: 18px; }
+.tsvc-name { font-size: clamp(0.78rem, 1.28vw, 0.96rem); font-weight: 700; color: var(--text-dark); flex: 1; }
+.tsvc-arr { color: var(--text-muted-dark); font-size: clamp(0.68rem, 1.05vw, 0.82rem); transition: transform 0.2s; }
+.tsvc-row:hover .tsvc-arr { transform: translateX(3px); }
+
+/* === TAGLINE PILLS === */
+.pills { display: flex; flex-wrap: wrap; gap: clamp(0.28rem, 0.6vw, 0.55rem); }
+.pill { padding: 0.22rem 0.55rem; border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; font-size: clamp(0.55rem, 0.85vw, 0.68rem); font-weight: 500; color: rgba(255,255,255,0.5); }
+
+/* === CTA SLIDE CONTACT === */
+.contact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(0.5rem, 1vw, 0.9rem); width: 100%; }
+.contact-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; padding: clamp(0.6rem, 1.2vw, 1rem); text-align: center; }
+.contact-icon { font-size: clamp(1.1rem, 1.7vw, 1.4rem); margin-bottom: 0.25rem; }
+.contact-lbl { font-size: clamp(0.5rem, 0.8vw, 0.62rem); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted-light); margin-bottom: 0.18rem; }
+.contact-val { font-size: clamp(0.65rem, 1.05vw, 0.82rem); font-weight: 600; color: var(--text-light); }
+
+/* === CONFIDENTIAL LABEL === */
+.conf { position: absolute; bottom: clamp(0.6rem,1.2vw,1rem); left: var(--slide-padding); font-size: clamp(0.48rem, 0.72vw, 0.58rem); color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase; z-index: 10; }
+
+/* === PROGRESS BAR === */
+.progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); width: 0%; z-index: 1000; transition: width 0.3s ease; pointer-events: none; }
+
+/* === NAV DOTS === */
+.nav-dots { position: fixed; right: clamp(0.75rem,1.5vw,1.4rem); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: clamp(5px,0.65vh,9px); z-index: 500; list-style: none; }
+.nav-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.25); cursor: pointer; transition: all 0.3s; border: none; padding: 0; }
+.nav-dot.active { background: var(--white); transform: scale(1.4); }
+.nav-dot.light-bg { background: rgba(6,8,16,0.2); }
+.nav-dot.light-bg.active { background: var(--accent); transform: scale(1.4); }
+
+/* === REVEAL ANIMATION === */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease); }
+.slide.visible .reveal { opacity: 1; transform: none; }
+.slide.visible .reveal:nth-child(1) { transition-delay: 0.05s; }
+.slide.visible .reveal:nth-child(2) { transition-delay: 0.15s; }
+.slide.visible .reveal:nth-child(3) { transition-delay: 0.25s; }
+.slide.visible .reveal:nth-child(4) { transition-delay: 0.35s; }
+.slide.visible .reveal:nth-child(5) { transition-delay: 0.45s; }
+.slide.visible .reveal:nth-child(6) { transition-delay: 0.55s; }
+
+/* === INLINE EDITING === */
+.edit-hotzone { position: fixed; top: 0; left: 0; width: 80px; height: 80px; z-index: 10000; cursor: pointer; }
+.edit-toggle { position: fixed; top: 14px; left: 14px; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border: none; cursor: pointer; font-size: 0.82rem; display: flex; align-items: center; justify-content: center; z-index: 10001; opacity: 0; pointer-events: none; transition: opacity 0.3s; box-shadow: 0 2px 12px rgba(58,92,255,0.4); }
+.edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
+.edit-banner { position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); background: var(--dark); border: 1px solid var(--accent); border-radius: 4px; padding: 0.35rem 0.9rem; font-size: clamp(0.58rem, 0.88vw, 0.7rem); font-weight: 600; color: var(--text-light); letter-spacing: 0.08em; z-index: 9999; display: none; gap: 0.9rem; align-items: center; white-space: nowrap; }
+.edit-banner.active { display: flex; }
+body.edit-active [data-e] { outline: 1px dashed rgba(58,92,255,0.35); }
+body.edit-active [data-e]:focus { outline: 1.5px solid var(--accent); background: rgba(58,92,255,0.04); border-radius: 2px; }
+
+/* === PRINT / PDF EXPORT === */
+@media print {
+  @page { size: 1920px 1080px; margin: 0; }
+  html, body { width: 1920px; height: auto; overflow: visible !important; scroll-snap-type: none !important; background: var(--dark); }
+  .slide {
+    width: 1920px !important;
+    height: 1080px !important;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden !important;
+    scroll-snap-align: none !important;
+  }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  .slide .reveal { opacity: 1 !important; transform: none !important; }
+  .progress-bar, .nav-dots, .edit-hotzone, .edit-toggle, .edit-banner { display: none !important; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .split, .split-55, .split-45 { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+  .panel { padding: clamp(0.75rem,3vw,1.5rem); min-height: 50dvh; }
+  .pain-grid, .audit-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<ul class="nav-dots" id="navDots"></ul>
+<div class="edit-hotzone" id="editHotzone"></div>
+<button class="edit-toggle" id="editToggle" title="Editar (E)">✏️</button>
+<div class="edit-banner" id="editBanner">
+  <span>Modo edición activo</span>
+  <span style="opacity:.6">Ctrl+S para guardar</span>
+</div>
+
+
+<!-- =============================================
+     SLIDE 1 · PORTADA
+     ============================================= -->
+<section class="slide split split-55" id="slide-1" data-light="false">
+  <div class="panel panel-dark jb accent-bar">
+    <div class="reveal"><span class="eyebrow">Catálogo de Servicios · 2026</span></div>
+    <div>
+      <h1 class="heading-xl reveal" style="margin-bottom:clamp(0.75rem,1.5vw,1.4rem)" data-e contenteditable="false">SERVICIOS<br>DIGITALES<br>&amp; IA</h1>
+      <p class="body-text reveal" style="margin-bottom:clamp(0.4rem,0.8vw,0.8rem)" data-e contenteditable="false">Transformamos tu negocio con tecnología.</p>
+      <div class="pills reveal">
+        <span class="pill" data-e contenteditable="false">Web</span>
+        <span class="pill" data-e contenteditable="false">Chatbots</span>
+        <span class="pill" data-e contenteditable="false">Automatizaciones</span>
+        <span class="pill" data-e contenteditable="false">IA</span>
+        <span class="pill" data-e contenteditable="false">Auditorías</span>
+        <span class="pill" data-e contenteditable="false">Dashboards</span>
+      </div>
+    </div>
+    <div class="stats-row reveal">
+      <div><div class="stat-num" data-e contenteditable="false">3+</div><div class="stat-lbl" data-e contenteditable="false">Años de exp.</div></div>
+      <div><div class="stat-num" data-e contenteditable="false">10+</div><div class="stat-lbl" data-e contenteditable="false">Marcas asesoradas</div></div>
+      <div><div class="stat-num" data-e contenteditable="false">100%</div><div class="stat-lbl" data-e contenteditable="false">Resultados medibles</div></div>
+    </div>
+    <span class="conf" data-e contenteditable="false">Confidencial · Solo para uso en presentación comercial</span>
+  </div>
+  <div class="panel panel-light jb">
+    <div>
+      <span class="eyebrow ow reveal" style="display:block;margin-bottom:clamp(0.5rem,1vw,0.9rem)">Nuestros Servicios</span>
+      <ul class="tsvc-list reveal">
+        <li class="tsvc-row"><span class="tsvc-n">01</span><span class="tsvc-name" data-e contenteditable="false">Páginas Web Profesionales</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">02</span><span class="tsvc-name" data-e contenteditable="false">Chatbots con IA</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">03</span><span class="tsvc-name" data-e contenteditable="false">Automatizaciones de Procesos</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">04</span><span class="tsvc-name" data-e contenteditable="false">Asesoría de IA</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">05</span><span class="tsvc-name" data-e contenteditable="false">Auditoría de Negocio Digital</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">06</span><span class="tsvc-name" data-e contenteditable="false">Auditoría Meta Ads</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">07</span><span class="tsvc-name" data-e contenteditable="false">Dashboards de Analytics</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">08</span><span class="tsvc-name" data-e contenteditable="false">Auditoría SEO</span><span class="tsvc-arr">→</span></li>
+      </ul>
+    </div>
+    <div class="q-box lt reveal">
+      <div class="q-label lt">Para empezar</div>
+      <div class="q-text lt" data-e contenteditable="false">¿Cuál de estos 8 servicios crees que impactaría más en tu negocio hoy?</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 2 · PROBLEMA
+     ============================================= -->
+<section class="slide full-dark" id="slide-2" data-light="false">
+  <div class="slide-content">
+    <div style="max-width:min(90vw,860px);margin:0 auto;display:flex;flex-direction:column;gap:var(--content-gap)">
+      <div class="reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:clamp(0.3rem,0.6vw,0.6rem)">El problema</span>
+        <h2 class="heading-lg" style="margin-bottom:clamp(0.3rem,0.6vw,0.6rem)" data-e contenteditable="false">¿Te suena familiar?</h2>
+        <p class="body-text" data-e contenteditable="false">Muchas marcas peruanas pierden clientes y dinero por estos problemas:</p>
+      </div>
+      <div class="pain-grid reveal">
+        <div class="pain-item"><span class="pain-emoji">❌</span><div><strong class="pain-strong" data-e contenteditable="false">Sin presencia web profesional</strong><span class="pain-sub" data-e contenteditable="false">Los clientes no confían en marcas sin web. Te buscan en Google y no apareces.</span></div></div>
+        <div class="pain-item"><span class="pain-emoji">❌</span><div><strong class="pain-strong" data-e contenteditable="false">Responden mensajes a mano, 24/7</strong><span class="pain-sub" data-e contenteditable="false">Sin automatización, cada mensaje es tiempo perdido que podría ser ventas.</span></div></div>
+        <div class="pain-item"><span class="pain-emoji">❌</span><div><strong class="pain-strong" data-e contenteditable="false">No miden sus anuncios en Meta Ads</strong><span class="pain-sub" data-e contenteditable="false">Gastan en publicidad sin saber qué funciona ni qué drena el presupuesto.</span></div></div>
+        <div class="pain-item"><span class="pain-emoji">❌</span><div><strong class="pain-strong" data-e contenteditable="false">Sin datos ni métricas en tiempo real</strong><span class="pain-sub" data-e contenteditable="false">Toman decisiones sin visibilidad de ventas, clientes ni rendimiento digital.</span></div></div>
+      </div>
+      <div class="q-box dk reveal">
+        <div class="q-label dk">Pregunta clave</div>
+        <div class="q-text dk" data-e contenteditable="false">¿Cuál de estos problemas te está costando más clientes o dinero hoy?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 3 · NUESTROS SERVICIOS (ÍNDICE)
+     ============================================= -->
+<section class="slide split split-45" id="slide-3" data-light="false">
+  <div class="panel panel-dark jc accent-bar">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <span class="eyebrow reveal">Portfolio completo</span>
+      <h2 class="heading-lg reveal" data-e contenteditable="false">Nuestros<br>Servicios</h2>
+      <p class="body-text reveal" data-e contenteditable="false">Todo lo que necesitas para crecer digitalmente, en un solo lugar.</p>
+    </div>
+  </div>
+  <div class="panel panel-light jc">
+    <div style="width:100%">
+      <span class="eyebrow ow reveal" style="display:block;margin-bottom:clamp(0.5rem,1vw,0.9rem)">8 servicios disponibles</span>
+      <ul class="tsvc-list reveal">
+        <li class="tsvc-row"><span class="tsvc-n">01</span><span class="tsvc-name" data-e contenteditable="false">Páginas Web Profesionales</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">02</span><span class="tsvc-name" data-e contenteditable="false">Chatbots con IA</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">03</span><span class="tsvc-name" data-e contenteditable="false">Automatizaciones de Procesos</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">04</span><span class="tsvc-name" data-e contenteditable="false">Asesoría de IA</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">05</span><span class="tsvc-name" data-e contenteditable="false">Auditoría de Negocio Digital</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">06</span><span class="tsvc-name" data-e contenteditable="false">Auditoría Meta Ads</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">07</span><span class="tsvc-name" data-e contenteditable="false">Dashboards de Analytics</span><span class="tsvc-arr">→</span></li>
+        <li class="tsvc-row"><span class="tsvc-n">08</span><span class="tsvc-name" data-e contenteditable="false">Auditoría SEO</span><span class="tsvc-arr">→</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 4 · 01 · PÁGINAS WEB
+     ============================================= -->
+<section class="slide split" id="slide-4" data-light="false">
+  <div class="panel panel-dark jb accent-bar">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <div class="svc-badge dk reveal"><span class="badge-dot"></span>Servicio 01</div>
+      <h2 class="heading-md reveal" data-e contenteditable="false">Páginas Web<br>Profesionales</h2>
+      <p class="body-text reveal" data-e contenteditable="false">Diseño moderno y responsivo que convierte visitantes en clientes.</p>
+    </div>
+    <ul class="feat-list">
+      <li class="feat-item"><span class="feat-icon"></span><span data-e contenteditable="false">Diseño moderno y responsivo (móvil + escritorio)</span></li>
+      <li class="feat-item"><span class="feat-icon"></span><span data-e contenteditable="false">Velocidad optimizada y SEO básico incluido</span></li>
+      <li class="feat-item"><span class="feat-icon"></span><span data-e contenteditable="false">Integración con WhatsApp, Instagram y formularios</span></li>
+      <li class="feat-item"><span class="feat-icon"></span><span data-e contenteditable="false">Panel de administración fácil de usar</span></li>
+      <li class="feat-item"><span class="feat-icon"></span><span data-e contenteditable="false">Entrega en 7–14 días hábiles</span></li>
+    </ul>
+  </div>
+  <div class="panel panel-light jb">
+    <div>
+      <span class="eyebrow ow reveal" style="display:block;margin-bottom:clamp(0.5rem,1vw,0.9rem)">Inversión</span>
+      <div class="price-box accent reveal">
+        <div class="price-label">Desde</div>
+        <div class="price-amount" data-e contenteditable="false">S/ 1,200</div>
+        <div class="price-sub" data-e contenteditable="false">pago único</div>
+        <ul class="includes-list">
+          <li class="inc-item" data-e contenteditable="false">Dominio 1er año incluido</li>
+          <li class="inc-item" data-e contenteditable="false">Hosting configurado</li>
+          <li class="inc-item" data-e contenteditable="false">2 rondas de revisión</li>
+          <li class="inc-item" data-e contenteditable="false">Soporte post-entrega 30 días</li>
+        </ul>
+      </div>
+    </div>
+    <div class="q-box lt reveal">
+      <div class="q-label lt">Pregunta clave</div>
+      <div class="q-text lt" data-e contenteditable="false">¿Tu web actual convierte visitantes en clientes reales?</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 5 · 02 · CHATBOTS CON IA
+     ============================================= -->
+<section class="slide split" id="slide-5" data-light="false">
+  <div class="panel panel-dark jb accent-bar">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <div class="svc-badge dk reveal"><span class="badge-dot"></span>Servicio 02</div>
+      <h2 class="heading-md reveal" data-e contenteditable="false">Chatbots con IA</h2>
+      <p class="body-text reveal" data-e contenteditable="false">Tu negocio responde solo — incluso mientras duermes.</p>
+    </div>
+    <ul class="steps-list">
+      <li class="step-item"><div class="step-num">01</div><div><div class="step-title" data-e contenteditable="false">Atención al cliente</div><div class="step-desc" data-e contenteditable="false">Responde preguntas frecuentes, horarios, precios y reservas automáticamente en WhatsApp o Instagram.</div></div></li>
+      <li class="step-item"><div class="step-num">02</div><div><div class="step-title" data-e contenteditable="false">Captura de leads</div><div class="step-desc" data-e contenteditable="false">El bot califica prospectos, pide datos y agenda reuniones sin intervención humana.</div></div></li>
+      <li class="step-item"><div class="step-num">03</div><div><div class="step-title" data-e contenteditable="false">Seguimiento post-venta</div><div class="step-desc" data-e contenteditable="false">Envía recordatorios, confirmaciones y encuestas de satisfacción de forma automática.</div></div></li>
+    </ul>
+  </div>
+  <div class="panel panel-light jb">
+    <div>
+      <span class="eyebrow ow reveal" style="display:block;margin-bottom:clamp(0.5rem,1vw,0.9rem)">Herramientas</span>
+      <div class="tools-row reveal">
+        <span class="tool-chip lt" data-e contenteditable="false">ManyChat</span>
+        <span class="tool-chip lt" data-e contenteditable="false">Voiceflow</span>
+        <span class="tool-chip lt" data-e contenteditable="false">WhatsApp API</span>
+        <span class="tool-chip lt" data-e contenteditable="false">Instagram DM</span>
+      </div>
+    </div>
+    <div>
+      <div class="price-box light-card reveal">
+        <div class="price-label dk">Desde</div>
+        <div class="price-amount dk" data-e contenteditable="false">S/ 900</div>
+        <div class="price-sub dk" data-e contenteditable="false">por proyecto</div>
+      </div>
+      <div style="margin-top:clamp(0.5rem,1vw,0.9rem)" class="q-box lt reveal">
+        <div class="q-label lt">Pregunta clave</div>
+        <div class="q-text lt" data-e contenteditable="false">¿Cuántas horas al día pasas respondiendo los mismos mensajes?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 6 · 03 · AUTOMATIZACIONES
+     ============================================= -->
+<section class="slide split" id="slide-6" data-light="true">
+  <div class="panel panel-light jb">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <div class="svc-badge lt reveal"><span class="badge-dot"></span>Servicio 03</div>
+      <h2 class="heading-md ow reveal" data-e contenteditable="false">Automatizaciones<br>de Procesos</h2>
+      <p class="body-text ow reveal" data-e contenteditable="false">Elimina el trabajo manual repetitivo. Conectamos tus apps favoritas.</p>
+    </div>
+    <ul class="steps-list">
+      <li class="step-item"><div class="step-num">1</div><div><div class="step-title ow" data-e contenteditable="false">Auditoría</div><div class="step-desc ow" data-e contenteditable="false">Identificamos qué tareas repetitivas consumen tu tiempo.</div></div></li>
+      <li class="step-item"><div class="step-num">2</div><div><div class="step-title ow" data-e contenteditable="false">Diseño del flujo</div><div class="step-desc ow" data-e contenteditable="false">Diseñamos la automatización con Make, n8n o Zapier.</div></div></li>
+      <li class="step-item"><div class="step-num">3</div><div><div class="step-title ow" data-e contenteditable="false">Integración</div><div class="step-desc ow" data-e contenteditable="false">Conectamos CRM, correo, sheets, WhatsApp y más.</div></div></li>
+      <li class="step-item"><div class="step-num">4</div><div><div class="step-title ow" data-e contenteditable="false">Activación</div><div class="step-desc ow" data-e contenteditable="false">Pruebas y ajustes hasta que funcione perfecto.</div></div></li>
+    </ul>
+  </div>
+  <div class="panel panel-dark jb accent-bar">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <span class="eyebrow reveal">Ejemplos populares</span>
+      <ul class="examples-list reveal">
+        <li class="example-item"><span>📩</span><span data-e contenteditable="false">Nuevo cliente → Email de bienvenida automático</span></li>
+        <li class="example-item"><span>📊</span><span data-e contenteditable="false">Pedido recibido → Actualización en Google Sheets</span></li>
+        <li class="example-item"><span>💬</span><span data-e contenteditable="false">Mensaje en IG → Notificación en WhatsApp del dueño</span></li>
+        <li class="example-item"><span>📅</span><span data-e contenteditable="false">Formulario web → Cita agendada en Google Calendar</span></li>
+      </ul>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:clamp(0.5rem,1vw,0.85rem)">
+      <div>
+        <span class="caption reveal" style="display:block;margin-bottom:clamp(0.35rem,0.7vw,0.6rem)">Herramientas</span>
+        <div class="tools-row reveal">
+          <span class="tool-chip dk" data-e contenteditable="false">Make</span>
+          <span class="tool-chip dk" data-e contenteditable="false">n8n</span>
+          <span class="tool-chip dk" data-e contenteditable="false">Zapier</span>
+          <span class="tool-chip dk" data-e contenteditable="false">Google Sheets</span>
+          <span class="tool-chip dk" data-e contenteditable="false">CRM</span>
+        </div>
+      </div>
+      <div class="q-box dk reveal">
+        <div class="q-label dk">Pregunta clave</div>
+        <div class="q-text dk" data-e contenteditable="false">¿Qué tarea manual te quita más tiempo cada semana?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 7 · 04 · ASESORÍA DE IA
+     ============================================= -->
+<section class="slide split" id="slide-7" data-light="false">
+  <div class="panel panel-dark jb accent-bar">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <div class="svc-badge dk reveal"><span class="badge-dot"></span>Servicio 04</div>
+      <h2 class="heading-md reveal" data-e contenteditable="false">Asesoría de<br>Inteligencia Artificial</h2>
+      <p class="body-text reveal" data-e contenteditable="false">No se trata de tecnología — se trata de resultados.</p>
+    </div>
+    <ul class="feat-list">
+      <li class="feat-item"><span class="feat-icon"></span><span data-e contenteditable="false">Diagnóstico inicial de tu operación y marketing</span></li>
+      <li class="feat-item"><span class="feat-icon"></span><span data-e contenteditable="false">Implementación de ChatGPT, Claude y Gemini</span></li>
+      <li class="feat-item"><span class="feat-icon"></span><span data-e contenteditable="false">Prompts personalizados para ventas y atención</span></li>
+    </ul>
+  </div>
+  <div class="panel panel-light jb">
+    <div>
+      <span class="eyebrow ow reveal" style="display:block;margin-bottom:clamp(0.5rem,1vw,0.9rem)">También incluye</span>
+      <ul class="feat-list">
+        <li class="feat-item ow"><span class="feat-icon"></span><span data-e contenteditable="false">Generación de contenido con IA para redes</span></li>
+        <li class="feat-item ow"><span class="feat-icon"></span><span data-e contenteditable="false">Capacitación a tu equipo para ser más productivos</span></li>
+        <li class="feat-item ow"><span class="feat-icon"></span><span data-e contenteditable="false">Seguimiento y optimización mensual continua</span></li>
+      </ul>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:clamp(0.5rem,1vw,0.85rem)">
+      <div class="price-box light-card reveal">
+        <div class="price-label dk">Desde</div>
+        <div class="price-amount dk" data-e contenteditable="false">S/ 1,500 / mes</div>
+        <div class="price-sub dk" data-e contenteditable="false">o paquete único desde S/ 2,500</div>
+      </div>
+      <div class="q-box lt reveal">
+        <div class="q-label lt">Pregunta clave</div>
+        <div class="q-text lt" data-e contenteditable="false">¿Qué parte de tu equipo podría ahorrar horas cada semana con IA?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 8 · 05 · AUDITORÍA DIGITAL
+     ============================================= -->
+<section class="slide split" id="slide-8" data-light="true">
+  <div class="panel panel-light jb">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <div class="svc-badge lt reveal"><span class="badge-dot"></span>Servicio 05</div>
+      <h2 class="heading-md ow reveal" data-e contenteditable="false">Auditoría de<br>Negocio Digital</h2>
+      <p class="body-text ow reveal" data-e contenteditable="false">Fotografía completa de tu presencia digital.</p>
+    </div>
+    <div class="audit-grid reveal">
+      <div class="audit-card lt"><div class="audit-icon">📊</div><div class="audit-title ow" data-e contenteditable="false">Redes Sociales</div><div class="audit-desc ow" data-e contenteditable="false">Engagement, crecimiento y benchmarks del sector.</div></div>
+      <div class="audit-card lt"><div class="audit-icon">🌐</div><div class="audit-title ow" data-e contenteditable="false">Presencia Web</div><div class="audit-desc ow" data-e contenteditable="false">Velocidad, UX, CTAs y credibilidad de marca.</div></div>
+      <div class="audit-card lt"><div class="audit-icon">👥</div><div class="audit-title ow" data-e contenteditable="false">Análisis de Audiencia</div><div class="audit-desc ow" data-e contenteditable="false">Perfil demográfico y segmentos de mayor conversión.</div></div>
+      <div class="audit-card lt"><div class="audit-icon">⚡</div><div class="audit-title ow" data-e contenteditable="false">Competencia Directa</div><div class="audit-desc ow" data-e contenteditable="false">Qué hacen bien y dónde están tus oportunidades.</div></div>
+    </div>
+  </div>
+  <div class="panel panel-dark jb accent-bar">
+    <div>
+      <span class="eyebrow reveal" style="display:block;margin-bottom:clamp(0.5rem,1vw,0.9rem)">Entregable</span>
+      <div class="price-box dark-card reveal">
+        <div style="font-size:clamp(1.3rem,2vw,1.6rem);margin-bottom:clamp(0.4rem,0.8vw,0.75rem)">📦</div>
+        <p class="step-desc" style="margin-bottom:clamp(0.5rem,1vw,0.9rem)" data-e contenteditable="false">PDF profesional con informe detallado + versión dashboard interactivo opcional.</p>
+        <div class="price-label">Inversión</div>
+        <div class="price-amount" data-e contenteditable="false">S/ 500 – 900</div>
+      </div>
+    </div>
+    <div class="q-box dk reveal">
+      <div class="q-label dk">Pregunta clave</div>
+      <div class="q-text dk" data-e contenteditable="false">¿Sabes cómo se ve tu marca frente a tu competencia directa?</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 9 · 06 · AUDITORÍA META ADS
+     ============================================= -->
+<section class="slide split" id="slide-9" data-light="false">
+  <div class="panel panel-dark jb accent-bar">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <div class="svc-badge dk reveal"><span class="badge-dot"></span>Servicio 06</div>
+      <h2 class="heading-md reveal" data-e contenteditable="false">Auditoría<br>de Meta Ads</h2>
+      <p class="body-text reveal" data-e contenteditable="false">Descubre por qué tus anuncios no convierten — y exactamente cómo arreglarlo.</p>
+    </div>
+    <ul class="steps-list">
+      <li class="step-item"><div class="step-num">01</div><div><div class="step-title" data-e contenteditable="false">Estructura de campañas</div><div class="step-desc" data-e contenteditable="false">Arquitectura, segmentación y configuración general.</div></div></li>
+      <li class="step-item"><div class="step-num">02</div><div><div class="step-title" data-e contenteditable="false">Análisis de métricas clave</div><div class="step-desc" data-e contenteditable="false">CTR, CPC, CPM, ROAS, frecuencia y tasa de conversión.</div></div></li>
+      <li class="step-item"><div class="step-num">03</div><div><div class="step-title" data-e contenteditable="false">Diagnóstico de creativos</div><div class="step-desc" data-e contenteditable="false">Qué imágenes y copies funcionan y cuáles drenan el presupuesto.</div></div></li>
+      <li class="step-item"><div class="step-num">04</div><div><div class="step-title" data-e contenteditable="false">Plan de acción priorizado</div><div class="step-desc" data-e contenteditable="false">Lista de mejoras con impacto estimado en resultados.</div></div></li>
+    </ul>
+  </div>
+  <div class="panel panel-light jb">
+    <div>
+      <span class="eyebrow ow reveal" style="display:block;margin-bottom:clamp(0.5rem,1vw,0.9rem)">Métricas que auditamos</span>
+      <ul class="metrics-list reveal">
+        <li class="metric-item" data-e contenteditable="false">CTR (Click-Through Rate)</li>
+        <li class="metric-item" data-e contenteditable="false">CPC / CPM</li>
+        <li class="metric-item" data-e contenteditable="false">ROAS y ROI real</li>
+        <li class="metric-item" data-e contenteditable="false">Frecuencia de anuncio</li>
+        <li class="metric-item" data-e contenteditable="false">Tasa de conversión</li>
+        <li class="metric-item" data-e contenteditable="false">Pixel y eventos activos</li>
+      </ul>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:clamp(0.5rem,1vw,0.85rem)">
+      <div class="price-box light-card reveal">
+        <div class="price-label dk">Inversión</div>
+        <div class="price-amount dk" data-e contenteditable="false">S/ 600 – 1,200</div>
+        <div class="price-sub dk" data-e contenteditable="false">Incluye sesión de revisión</div>
+      </div>
+      <div class="q-box lt reveal">
+        <div class="q-label lt">Pregunta clave</div>
+        <div class="q-text lt" data-e contenteditable="false">¿Cuánto inviertes en Meta Ads al mes y qué ROAS obtienes?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 10 · 07 · DASHBOARDS ANALYTICS
+     ============================================= -->
+<section class="slide split" id="slide-10" data-light="true">
+  <div class="panel panel-light jb">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <div class="svc-badge lt reveal"><span class="badge-dot"></span>Servicio 07</div>
+      <h2 class="heading-md ow reveal" data-e contenteditable="false">Dashboards de<br>Analytics y Ventas</h2>
+      <p class="body-text ow reveal" data-e contenteditable="false">Todos tus datos en tiempo real — sin hojas de Excel.</p>
+    </div>
+    <div class="reveal">
+      <div class="dash-type"><div class="dash-title" data-e contenteditable="false">📈 Dashboard de Ventas</div><div class="dash-bullets" data-e contenteditable="false">Ventas diarias / semanales · Top productos · Funnel de conversión · Comparativa períodos</div></div>
+      <div class="dash-type"><div class="dash-title" data-e contenteditable="false">🧾 Dashboard de Facturación</div><div class="dash-bullets" data-e contenteditable="false">Ingresos y egresos en tiempo real · Clientes frecuentes vs nuevos · Alertas de metas</div></div>
+      <div class="dash-type"><div class="dash-title" data-e contenteditable="false">📱 Dashboard de Redes</div><div class="dash-bullets" data-e contenteditable="false">Seguidores y crecimiento · Engagement por post · Comparativa entre plataformas</div></div>
+    </div>
+  </div>
+  <div class="panel panel-dark jb accent-bar">
+    <div>
+      <span class="eyebrow reveal" style="display:block;margin-bottom:clamp(0.5rem,1vw,0.9rem)">Plataformas</span>
+      <div class="tools-row reveal">
+        <span class="tool-chip dk" data-e contenteditable="false">Looker Studio</span>
+        <span class="tool-chip dk" data-e contenteditable="false">Power BI</span>
+        <span class="tool-chip dk" data-e contenteditable="false">Google Sheets</span>
+        <span class="tool-chip dk" data-e contenteditable="false">Notion</span>
+      </div>
+    </div>
+    <div>
+      <div class="price-box dark-card reveal">
+        <div class="price-label">Inversión</div>
+        <div class="price-amount" data-e contenteditable="false">S/ 800 – 2,000</div>
+        <div class="price-sub" data-e contenteditable="false">según complejidad</div>
+      </div>
+      <div style="margin-top:clamp(0.5rem,1vw,0.9rem)" class="q-box dk reveal">
+        <div class="q-label dk">Pregunta clave</div>
+        <div class="q-text dk" data-e contenteditable="false">¿Cómo mides tus ventas hoy — en Excel o en tiempo real?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 11 · 08 · AUDITORÍA SEO
+     ============================================= -->
+<section class="slide split" id="slide-11" data-light="false">
+  <div class="panel panel-dark jb accent-bar">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <div class="svc-badge dk reveal"><span class="badge-dot"></span>Servicio 08</div>
+      <h2 class="heading-md reveal" data-e contenteditable="false">Auditoría SEO<br>de Páginas Web</h2>
+      <p class="body-text reveal" data-e contenteditable="false">Descubrimos por qué Google no te muestra — y te damos el plan exacto para cambiar eso.</p>
+    </div>
+    <div class="reveal" style="display:flex;flex-direction:column;gap:clamp(0.4rem,0.8vw,0.7rem)">
+      <div class="seo-cat"><div class="seo-head"><span class="seo-icon">⚙️</span><span class="seo-title dk" data-e contenteditable="false">SEO Técnico</span></div><div class="seo-items" data-e contenteditable="false">Velocidad · Core Web Vitals · Indexación · Errores 404 · Sitemap</div></div>
+      <div class="seo-cat"><div class="seo-head"><span class="seo-icon">📝</span><span class="seo-title dk" data-e contenteditable="false">SEO On-Page</span></div><div class="seo-items" data-e contenteditable="false">Títulos, metas y headers · Palabras clave · Calidad de contenido · URLs</div></div>
+    </div>
+  </div>
+  <div class="panel panel-light jb">
+    <div style="display:flex;flex-direction:column;gap:clamp(0.4rem,0.8vw,0.7rem)" class="reveal">
+      <span class="eyebrow ow" style="display:block;margin-bottom:clamp(0.3rem,0.6vw,0.55rem)">También auditamos</span>
+      <div class="seo-cat"><div class="seo-head"><span class="seo-icon">🔗</span><span class="seo-title ow" data-e contenteditable="false">SEO Off-Page</span></div><div class="seo-items ow" data-e contenteditable="false">Backlinks · Autoridad de dominio · Referencias y menciones · Competidores</div></div>
+      <div class="seo-cat"><div class="seo-head"><span class="seo-icon">📍</span><span class="seo-title ow" data-e contenteditable="false">Presencia Local</span></div><div class="seo-items ow" data-e contenteditable="false">Google Business Profile · Reseñas · Consistencia NAP · Búsquedas locales</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:clamp(0.5rem,1vw,0.85rem)">
+      <div class="price-box light-card reveal">
+        <div class="price-label dk">Inversión</div>
+        <div class="price-amount dk" data-e contenteditable="false">S/ 500 – 1,000</div>
+        <div class="price-sub dk" data-e contenteditable="false">PDF detallado + checklist priorizado</div>
+      </div>
+      <div class="q-box lt reveal">
+        <div class="q-label lt">Pregunta clave</div>
+        <div class="q-text lt" data-e contenteditable="false">¿Apareces en la primera página de Google por tu servicio principal?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 12 · SOCIAL PROOF
+     ============================================= -->
+<section class="slide split split-45" id="slide-12" data-light="false">
+  <div class="panel panel-dark jc accent-bar">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <span class="eyebrow reveal">Nuestros clientes</span>
+      <h2 class="heading-lg reveal" data-e contenteditable="false">Marcas que ya<br>confían en nosotros</h2>
+      <p class="body-text reveal" data-e contenteditable="false">Resultados reales con marcas del sector fitness y bienestar en Perú.</p>
+      <p class="body-text reveal" style="color:rgba(255,255,255,0.35);font-size:clamp(0.65rem,1vw,0.8rem)" data-e contenteditable="false">+ Marcas en crecimiento. Tu marca podría ser la siguiente.</p>
+    </div>
+  </div>
+  <div class="panel panel-light jc">
+    <div class="proof-cards reveal">
+      <div class="proof-card"><div class="proof-avatar">AF</div><div><div class="proof-handle" data-e contenteditable="false">@alphafit.pe</div><div class="proof-sector" data-e contenteditable="false">Fitness · Lima</div><div class="proof-service" data-e contenteditable="false">Web + chatbot de atención automatizada</div></div></div>
+      <div class="proof-card"><div class="proof-avatar">MF</div><div><div class="proof-handle" data-e contenteditable="false">@miranafit.pe</div><div class="proof-sector" data-e contenteditable="false">Wellness · Lima</div><div class="proof-service" data-e contenteditable="false">Estrategia de contenido con IA + automatizaciones</div></div></div>
+      <div class="proof-card"><div class="proof-avatar">RG</div><div><div class="proof-handle" data-e contenteditable="false">@rubberfit_gym</div><div class="proof-sector" data-e contenteditable="false">Gym · Lima</div><div class="proof-service" data-e contenteditable="false">Página web profesional + captación de leads</div></div></div>
+      <div class="proof-card"><div class="proof-avatar">TMX</div><div><div class="proof-handle" data-e contenteditable="false">@tmx.thewellnessco</div><div class="proof-sector" data-e contenteditable="false">Wellness · Lima</div><div class="proof-service" data-e contenteditable="false">Automatizaciones + asesoría en IA</div></div></div>
+      <div class="proof-card"><div class="proof-avatar">XL</div><div><div class="proof-handle" data-e contenteditable="false">@xl.nutrition.peru</div><div class="proof-sector" data-e contenteditable="false">Nutrición deportiva · Lima</div><div class="proof-service" data-e contenteditable="false">Estrategia digital + contenido con IA</div></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 13 · ¿POR QUÉ NOSOTROS?
+     ============================================= -->
+<section class="slide split split-45" id="slide-13" data-light="false">
+  <div class="panel panel-dark jc accent-bar">
+    <div style="display:flex;flex-direction:column;gap:var(--element-gap)">
+      <span class="eyebrow reveal">Nuestra propuesta de valor</span>
+      <h2 class="heading-lg reveal" data-e contenteditable="false">¿Por qué<br>trabajar<br>con nosotros?</h2>
+    </div>
+  </div>
+  <div class="panel panel-light jc">
+    <div class="why-grid reveal">
+      <div class="why-item"><span class="why-icon">⚡</span><div><div class="why-ttl" data-e contenteditable="false">Entrega rápida</div><div class="why-desc" data-e contenteditable="false">Proyectos listos en días, no meses.</div></div></div>
+      <div class="why-item"><span class="why-icon">💰</span><div><div class="why-ttl" data-e contenteditable="false">Precios accesibles</div><div class="why-desc" data-e contenteditable="false">Calidad internacional a precios del mercado peruano.</div></div></div>
+      <div class="why-item"><span class="why-icon">🤝</span><div><div class="why-ttl" data-e contenteditable="false">Soporte cercano</div><div class="why-desc" data-e contenteditable="false">Comunicación directa por WhatsApp. Sin intermediarios.</div></div></div>
+      <div class="why-item"><span class="why-icon">📈</span><div><div class="why-ttl" data-e contenteditable="false">Enfocados en resultados</div><div class="why-desc" data-e contenteditable="false">No vendemos tecnología, vendemos crecimiento real.</div></div></div>
+      <div class="why-item"><span class="why-icon">🧠</span><div><div class="why-ttl" data-e contenteditable="false">Especialistas en IA</div><div class="why-desc" data-e contenteditable="false">Aplicamos las herramientas más actuales del mercado.</div></div></div>
+      <div class="why-item"><span class="why-icon">🔄</span><div><div class="why-ttl" data-e contenteditable="false">Servicio integral</div><div class="why-desc" data-e contenteditable="false">Web + chatbot + automatización + asesoría: todo en uno.</div></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SLIDE 14 · CTA / CIERRE
+     ============================================= -->
+<section class="slide full-dark" id="slide-14" data-light="false">
+  <div class="slide-content">
+    <div style="max-width:min(90vw,640px);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:var(--content-gap);text-align:center">
+      <div class="reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:clamp(0.5rem,1vw,0.9rem)">Tu competencia ya está usando IA</span>
+        <h2 class="heading-lg" data-e contenteditable="false">Hagamos que tu negocio<br>sea <span class="accent-text">imposible de ignorar</span></h2>
+      </div>
+      <p class="body-text reveal" style="max-width:480px" data-e contenteditable="false">No vendemos servicios: construimos la ventaja injusta que va a separar tu negocio del resto en los próximos 12 meses.</p>
+      <div class="contact-grid reveal" style="grid-template-columns:1fr 1fr;max-width:min(90vw,480px)">
+        <div class="contact-item"><div class="contact-icon">📱</div><div class="contact-lbl">WhatsApp</div><div class="contact-val" data-e contenteditable="false">+51 953 269 228</div></div>
+        <div class="contact-item"><div class="contact-icon">📧</div><div class="contact-lbl">Email</div><div class="contact-val" data-e contenteditable="false">syepesllerena@gmail.com</div></div>
+      </div>
+      <div class="reveal"><a class="cta-btn" href="#" style="font-size:clamp(0.68rem,1.08vw,0.85rem);padding:clamp(0.6rem,1.1vw,0.85rem) clamp(1.4rem,2.5vw,2.2rem)">Quiero mi cotización personalizada →</a></div>
+      <p class="caption reveal" data-e contenteditable="false" style="font-style:italic">La IA no va a reemplazar tu negocio. Los negocios que usan IA, sí.</p>
+    </div>
+  </div>
+</section>
+
+
+<script>
+/* =============================================
+   SLIDE PRESENTATION CONTROLLER
+   ============================================= */
+class SlidePresentation {
+  constructor() {
+    this.slides = Array.from(document.querySelectorAll('.slide'));
+    this.total = this.slides.length;
+    this.current = 0;
+    this.isScrolling = false;
+    this.progressBar = document.getElementById('progressBar');
+    this.navDotsContainer = document.getElementById('navDots');
+
+    this.setupIntersectionObserver();
+    this.setupNavDots();
+    this.setupKeyboard();
+    this.setupTouch();
+    this.setupWheel();
+    this.setupProgress();
+  }
+
+  /* --- IntersectionObserver: trigger reveal animations --- */
+  setupIntersectionObserver() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const idx = this.slides.indexOf(entry.target);
+          if (idx !== -1) {
+            this.current = idx;
+            this.updateNavDots();
+            this.updateProgress();
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+    this.slides.forEach(s => obs.observe(s));
+  }
+
+  /* --- Navigation dots --- */
+  setupNavDots() {
+    this.navDotsContainer.innerHTML = '';
+    this.slides.forEach((slide, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'nav-dot' + (i === 0 ? ' active' : '');
+      btn.setAttribute('aria-label', 'Ir a diapositiva ' + (i + 1));
+      btn.addEventListener('click', () => this.goTo(i));
+      this.navDotsContainer.appendChild(btn);
+    });
+    this.updateNavDots();
+  }
+
+  updateNavDots() {
+    const dots = this.navDotsContainer.querySelectorAll('.nav-dot');
+    const isLight = this.slides[this.current]?.dataset.light === 'true';
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === this.current);
+      dot.classList.toggle('light-bg', isLight);
+    });
+  }
+
+  /* --- Progress bar --- */
+  setupProgress() {
+    this.updateProgress();
+    document.addEventListener('scroll', () => this.updateProgress(), { passive: true });
+  }
+
+  updateProgress() {
+    const pct = this.total > 1 ? (this.current / (this.total - 1)) * 100 : 100;
+    this.progressBar.style.width = pct + '%';
+  }
+
+  /* --- Keyboard navigation --- */
+  setupKeyboard() {
+    document.addEventListener('keydown', (e) => {
+      if (e.target.getAttribute('contenteditable') === 'true') return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault(); this.next();
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault(); this.prev();
+      } else if (e.key === 'Home') {
+        e.preventDefault(); this.goTo(0);
+      } else if (e.key === 'End') {
+        e.preventDefault(); this.goTo(this.total - 1);
+      }
+    });
+  }
+
+  /* --- Touch / swipe --- */
+  setupTouch() {
+    let startY = 0, startX = 0;
+    document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; startX = e.touches[0].clientX; }, { passive: true });
+    document.addEventListener('touchend', e => {
+      const dy = startY - e.changedTouches[0].clientY;
+      const dx = startX - e.changedTouches[0].clientX;
+      if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 40) {
+        dy > 0 ? this.next() : this.prev();
+      }
+    }, { passive: true });
+  }
+
+  /* --- Mouse wheel --- */
+  setupWheel() {
+    let lastWheelTime = 0;
+    document.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const now = Date.now();
+      if (now - lastWheelTime < 800) return;
+      lastWheelTime = now;
+      e.deltaY > 0 ? this.next() : this.prev();
+    }, { passive: false });
+  }
+
+  goTo(idx) {
+    if (idx < 0 || idx >= this.total) return;
+    this.slides[idx].scrollIntoView({ behavior: 'smooth' });
+  }
+  next() { this.goTo(this.current + 1); }
+  prev() { this.goTo(this.current - 1); }
+}
+
+/* =============================================
+   INLINE EDITOR
+   ============================================= */
+class InlineEditor {
+  constructor() {
+    this.isActive = false;
+    this.editables = Array.from(document.querySelectorAll('[data-e]'));
+    this.toggle = document.getElementById('editToggle');
+    this.banner = document.getElementById('editBanner');
+    this.hotzone = document.getElementById('editHotzone');
+    this.hideTimeout = null;
+
+    this.setupHotzone();
+    this.setupKeyboard();
+    this.setupAutoSave();
+
+    this.toggle.addEventListener('click', () => this.toggleMode());
+  }
+
+  setupHotzone() {
+    this.hotzone.addEventListener('mouseenter', () => {
+      clearTimeout(this.hideTimeout);
+      this.toggle.classList.add('show');
+    });
+    this.hotzone.addEventListener('mouseleave', () => {
+      this.hideTimeout = setTimeout(() => {
+        if (!this.isActive) this.toggle.classList.remove('show');
+      }, 400);
+    });
+    this.toggle.addEventListener('mouseenter', () => clearTimeout(this.hideTimeout));
+    this.toggle.addEventListener('mouseleave', () => {
+      this.hideTimeout = setTimeout(() => {
+        if (!this.isActive) this.toggle.classList.remove('show');
+      }, 400);
+    });
+    this.hotzone.addEventListener('click', () => this.toggleMode());
+  }
+
+  setupKeyboard() {
+    document.addEventListener('keydown', (e) => {
+      if ((e.key === 'e' || e.key === 'E') && !e.target.getAttribute('contenteditable')) {
+        this.toggleMode();
+      }
+      if ((e.key === 's' || e.key === 'S') && (e.ctrlKey || e.metaKey) && this.isActive) {
+        e.preventDefault(); this.exportFile();
+      }
+    });
+  }
+
+  setupAutoSave() {
+    document.addEventListener('input', (e) => {
+      if (e.target.getAttribute('contenteditable') === 'true') {
+        clearTimeout(this.saveTimeout);
+        this.saveTimeout = setTimeout(() => this.saveToStorage(), 1000);
+      }
+    });
+  }
+
+  toggleMode() {
+    this.isActive = !this.isActive;
+    document.body.classList.toggle('edit-active', this.isActive);
+    this.editables.forEach(el => {
+      el.setAttribute('contenteditable', this.isActive ? 'true' : 'false');
+    });
+    this.toggle.textContent = this.isActive ? '✅' : '✏️';
+    this.toggle.classList.toggle('active', this.isActive);
+    this.banner.classList.toggle('active', this.isActive);
+  }
+
+  saveToStorage() {
+    const data = {};
+    this.editables.forEach((el, i) => { data[i] = el.innerHTML; });
+    try { localStorage.setItem('catalogo-edits', JSON.stringify(data)); } catch(e) {}
+  }
+
+  loadFromStorage() {
+    try {
+      const data = JSON.parse(localStorage.getItem('catalogo-edits') || '{}');
+      this.editables.forEach((el, i) => { if (data[i] !== undefined) el.innerHTML = data[i]; });
+    } catch(e) {}
+  }
+
+  exportFile() {
+    /* Strip edit state before capturing HTML so file opens cleanly */
+    this.editables.forEach(el => el.removeAttribute('contenteditable'));
+    document.body.classList.remove('edit-active');
+    this.toggle.classList.remove('active', 'show');
+    this.banner.classList.remove('active');
+
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+    /* Restore edit state */
+    document.body.classList.add('edit-active');
+    this.editables.forEach(el => el.setAttribute('contenteditable', 'true'));
+    this.toggle.classList.add('active');
+    this.banner.classList.add('active');
+
+    const blob = new Blob([html], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'catalogo-servicios.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+}
+
+/* =============================================
+   INIT
+   ============================================= */
+const presentation = new SlidePresentation();
+const editor = new InlineEditor();
+editor.loadFromStorage();
+</script>
+</body>
+</html>
